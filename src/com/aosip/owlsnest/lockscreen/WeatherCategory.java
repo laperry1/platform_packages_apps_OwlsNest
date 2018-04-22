@@ -21,20 +21,6 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import android.app.ActivityManager;
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.res.Resources;
-import android.hardware.fingerprint.FingerprintManager;
-import android.provider.Settings;
-import android.preference.PreferenceManager;
-import android.support.v7.preference.ListPreference;
-import android.support.v7.preference.PreferenceCategory;
-import android.support.v7.preference.PreferenceScreen;
-import android.support.v14.preference.SwitchPreference;
-
-import com.aosip.owlsnest.preference.CustomSeekBarPreference;
-import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -43,23 +29,6 @@ public class WeatherCategory extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-    private static final String PREF_CONDITION_ICON =
-            "weather_condition_icon";
-    private static final String PREF_HIDE_WEATHER =
-            "weather_hide_panel";
-    private static final String PREF_NUMBER_OF_NOTIFICATIONS =
-            "weather_number_of_notifications";
-
-    private static final int MONOCHROME_ICON = 0;
-
-    private ListPreference mConditionIcon;
-    private ListPreference mHideWeather;
-    private CustomSeekBarPreference mNumberOfNotifications;
-
-    private ContentResolver mResolver;
-
-    @Override
-    protected int getMetricsCategory() {
         return MetricsEvent.OWLSNEST;
     }
 
@@ -68,34 +37,6 @@ public class WeatherCategory extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.weather);
-        addPreferencesFromResource(R.xml.aosip_weather);
-
-        mResolver = getActivity().getContentResolver();
-        PreferenceScreen prefs = getPreferenceScreen();
-
-        mConditionIcon =
-                (ListPreference) findPreference(PREF_CONDITION_ICON);
-        int conditionIcon = Settings.System.getInt(mResolver,
-               Settings.System.LOCK_SCREEN_WEATHER_CONDITION_ICON, MONOCHROME_ICON);
-        mConditionIcon.setValue(String.valueOf(conditionIcon));
-        mConditionIcon.setSummary(mConditionIcon.getEntry());
-        mConditionIcon.setOnPreferenceChangeListener(this);
-
-        mHideWeather =
-                (ListPreference) findPreference(PREF_HIDE_WEATHER);
-        int hideWeather = Settings.System.getInt(mResolver,
-               Settings.System.LOCK_SCREEN_WEATHER_HIDE_PANEL, 0);
-        mHideWeather.setValue(String.valueOf(hideWeather));
-        mHideWeather.setOnPreferenceChangeListener(this);
-
-        mNumberOfNotifications =
-                (CustomSeekBarPreference) findPreference(PREF_NUMBER_OF_NOTIFICATIONS);
-        int numberOfNotifications = Settings.System.getInt(mResolver,
-                Settings.System.LOCK_SCREEN_WEATHER_NUMBER_OF_NOTIFICATIONS, 4);
-        mNumberOfNotifications.setValue(numberOfNotifications);
-        mNumberOfNotifications.setOnPreferenceChangeListener(this);
-
-        updatePreference();
     }
 
     @Override
@@ -104,46 +45,6 @@ public class WeatherCategory extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        updatePreference();
-    }
-
-    private void updatePreference() {
-        int hideWeather = Settings.System.getInt(mResolver,
-                Settings.System.LOCK_SCREEN_WEATHER_HIDE_PANEL, 0);
-        if (hideWeather == 0) {
-            mNumberOfNotifications.setEnabled(false);
-            mHideWeather.setSummary(R.string.weather_hide_panel_auto_summary);
-        } else if (hideWeather == 1) {
-            mNumberOfNotifications.setEnabled(true);
-            mHideWeather.setSummary(R.string.weather_hide_panel_custom_summary);
-        } else {
-            mNumberOfNotifications.setEnabled(false);
-            mHideWeather.setSummary(R.string.weather_hide_panel_never_summary);
-        }
-    }
-
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mConditionIcon) {
-            int intValue = Integer.valueOf((String) newValue);
-            int index = mConditionIcon.findIndexOfValue((String) newValue);
-            Settings.System.putInt(mResolver,
-                    Settings.System.LOCK_SCREEN_WEATHER_CONDITION_ICON, intValue);
-            mConditionIcon.setSummary(mConditionIcon.getEntries()[index]);
-            return true;
-        } else if (preference == mHideWeather) {
-            int intValue = Integer.valueOf((String) newValue);
-            int index = mHideWeather.findIndexOfValue((String) newValue);
-            Settings.System.putInt(mResolver,
-                    Settings.System.LOCK_SCREEN_WEATHER_HIDE_PANEL, intValue);
-            updatePreference();
-            return true;
-        } else if (preference == mNumberOfNotifications) {
-            int numberOfNotifications = (Integer) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.LOCK_SCREEN_WEATHER_NUMBER_OF_NOTIFICATIONS,
-            numberOfNotifications);
-            return true;
-        }
         return false;
     }
 }
