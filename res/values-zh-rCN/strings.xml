@@ -68,6 +68,9 @@
   <string name="show_carrier_keyguard">仅锁屏界面</string>
   <string name="show_carrier_statusbar">仅状态栏</string>
   <string name="show_carrier_enabled">锁屏和状态栏</string>
+  <!-- Data disabled icon -->
+  <string name="data_disabled_icon_title">显示数据禁用图标</string>
+  <string name="data_disabled_icon_summary">当数据禁用时，不显示图标旁边的 “×“ 图标</string>
   <!-- Statusbar net monitor -->
   <string name="network_traffic_state_title">在状态栏显示网络状态</string>
   <string name="network_traffic_autohide_threshold_title">网络活动自动隐藏阈值 (KB/s)</string>
@@ -77,6 +80,9 @@
   <string name="notification_category">通知</string>
   <string name="headsup_category">浮动通知</string>
   <string name="battery_light">电池指示灯</string>
+  <!-- Toast icon -->
+  <string name="toast_icon_title">App\'s icon in toast</string>
+  <string name="toast_icon_summary">Display the app icon corresponding with the toast</string>
   <!-- Suppress notification sound/vibration -->
   <string name="notification_sound_vib_screen_on_title">如果屏幕处于打开状态，发出声音和振动</string>
   <string name="notification_sound_vib_screen_on_never">从不</string>
@@ -116,6 +122,7 @@
   <string name="quicksettings_title">快速设置</string>
   <string name="quicksettings_summary">管理您的快速设置瓷贴和扩展状态栏</string>
   <string name="expanded_category">扩展桌面</string>
+  <string name="qs_footer">QS行/列计数和隐藏QS标签的选项位于QS编辑菜单下的三点菜单下</string>
   <!-- QuickSettings Panel Transparency -->
   <string name="qs_panel_alpha_title">透明度</string>
   <!--Quick pulldown-->
@@ -216,6 +223,17 @@
   <string name="fling_keyboard_cursors_title">动态键盘光标操作</string>
   <string name="fling_keyboard_cursors_move_summary">显示键盘时，长按左键或右键可将指针向左或向右移动。\n长按按键以移动指针，单击按键栏回到主屏幕。</string>
   <string name="fling_logo_opacity_title">Fling 标志透明度</string>
+  <string name="fling_factory_reset_title">Reset to stock</string>
+  <string name="fling_factory_reset_confirm">Are you sure you want to reset Fling to stock settings?</string>
+  <string name="fling_backup_current_config_title">Save profile</string>
+  <string name="fling_restore_config_title">Restore profile</string>
+  <string name="fling_config_name_edit_dialog_title">Fling profile name</string>
+  <string name="fling_config_name_edit_dialog_message">Enter name or leave blank</string>
+  <string name="fling_config_dialog_title">Fling profiles</string>
+  <string name="fling_config_backup_success_toast">Fling profile successfully saved</string>
+  <string name="fling_config_restore_success_toast">Fling profile successfully restored</string>
+  <string name="fling_config_backup_error_toast">Error saving Fling profile</string>
+  <string name="fling_config_restore_error_toast">Error restoring Fling profile</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">当扬声器正在播放音频时，某些音频脉冲将不能正常工作</string>
   <string name="pulse_settings">Pulse</string>
@@ -295,7 +313,7 @@
   <string name="smartbar_longpress_delay_long">高延迟</string>
   <string name="smartbar_custom_icon_size_title">自定义图标缩放</string>
   <string name="one_handed_mode_title">单手模式</string>
-  <string name="one_handed_mode_summary">允许在导航栏滑动以启用单手模式</string>
+  <string name="one_handed_mode_summary">在导航栏上滑动以启用单手模式</string>
   <string name="smartbar_double_tap_sleep_title">双击睡眠</string>
   <string name="smartbar_double_tap_sleep_summary">双击导航栏的空白区域休眠</string>
   <!--Owlsnest buttons-->
@@ -425,7 +443,7 @@
   <string name="systemui_theme_style_auto">自动 (基于壁纸)</string>
   <string name="systemui_theme_style_light">亮色</string>
   <string name="systemui_theme_style_dark">暗色</string>
-  <string name="systemui_theme_style_blackaf">BlackAF</string>
+  <string name="systemui_theme_style_blackaf">黑色</string>
   <string name="applying_theme_toast">正在应用主题，请稍等…</string>
   <string name="theme_applied_toast">主题已应用!</string>
   <string name="accent_picker_dialog_title">选择强调色</string>
@@ -499,6 +517,7 @@
   <string name="screenshot_edit_app_no_editor">无可用图像编辑器</string>
   <!-- Status bar clock options -->
   <string name="clock_category">时钟</string>
+  <string name="clock_footer">中心时钟已添加，但由于奥利奥中的一些变化，您可以自行决定使用它，但会出现中心时钟和滚动条/通知图标溢出的一些问题</string>
   <string name="status_bar_clock">时钟和日期</string>
   <string name="status_bar_clock_summary">配置状态栏时钟和日期外观</string>
   <string name="clock_title_enable">对齐方式</string>
@@ -512,6 +531,7 @@
   <string name="enable_clock_weekday">星期计数</string>
   <string name="enable_clock_weekday_summary">在时间前显示简写的星期</string>
   <string name="right_clock">时钟居右</string>
+  <string name="center_clock">时钟居中</string>
   <string name="left_clock">时钟居左</string>
   <string name="dont_show">隐藏</string>
   <string name="clock_date_display">日期</string>
@@ -542,7 +562,7 @@
   <!-- Status bar battery style-->
   <string name="status_bar_battery_style_title">电池样式</string>
   <string name="status_bar_battery_style_port">纵向</string>
-  <string name="status_bar_battery_style_land">Landscape</string>
+  <string name="status_bar_battery_style_land">横向</string>
   <string name="status_bar_battery_style_circle">环形</string>
   <string name="status_bar_battery_style_dotted_circle">虚线圆圈</string>
   <string name="status_bar_battery_style_text">文本</string>
@@ -552,7 +572,6 @@
   <string name="notification_guts_kill_app_button_title">强制关闭应用按键</string>
   <string name="notification_guts_kill_app_button_summary">在通知长按菜单中显示强制关闭应用按键</string>
   <!-- Screen state service -->
-  <string name="screen_state_toggles_summary">\@null</string>
   <string name="screen_state_toggles_title">暂停动作</string>
   <string name="screen_state_toggles_enable_title">启用</string>
   <string name="screen_state_toggles_enable_summary">操作将在屏幕关闭时执行。屏幕上的当前状态将会被还原。</string>
@@ -585,4 +604,18 @@
   <string name="qs_tile_animation_duration_fast">快</string>
   <string name="qs_set_animation_style">动画已设为%1$s</string>
   <string name="qs_set_animation_duration">动画时长已设为%1$s</string>
+  <!-- Battery icon size -->
+  <string name="large_battery_icon_title">显示大图标</string>
+  <string name="large_battery_icon_summary">增大状态栏电池图标</string>
+  <!-- Smart Pixels -->
+  <string name="smart_pixels_title">Smart Pixels</string>
+  <string name="smart_pixels_warning_text">Smart pixels is a power saving feature. Depending on how many pixels you decide to turn off, you could see a significant improvement in battery life. For a good user experience, we recommend you set the amount of disabled pixels at 75 percent.</string>
+  <string name="smart_pixels_summary">Save battery by shutting off extra pixels</string>
+  <string name="smart_pixels_enable_title">Enable Smart Pixels</string>
+  <string name="smart_pixels_enable_summary">Shut off pixels to reduce power consumption</string>
+  <string name="smart_pixels_on_power_save_title">Auto-enable on battery saver</string>
+  <string name="smart_pixels_on_power_save_summary">Enable Smart Pixels when battery saver is enabled</string>
+  <string name="smart_pixels_percent">Percent of pixels to disable</string>
+  <string name="smart_pixels_shift_title">Burn-in protection</string>
+  <string name="smart_pixels_shift_summary">Prevents burn-in on OLED devices by shifting pixels every so often</string>
 </resources>

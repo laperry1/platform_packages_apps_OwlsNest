@@ -31,8 +31,9 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
-import com.aosip.owlsnest.advanced.SystemCategory;
 import com.aosip.owlsnest.advanced.ScreenStateToggles;
+import com.aosip.owlsnest.advanced.SmartPixels;
+import com.aosip.owlsnest.advanced.SystemCategory;
 import com.aosip.owlsnest.PagerSlidingTabStrip;
 
 public class AdvancedHolder extends SettingsPreferenceFragment {
@@ -86,6 +87,11 @@ public class AdvancedHolder extends SettingsPreferenceFragment {
             super(fm);
             frags[0] = new SystemCategory();
             frags[1] = new ScreenStateToggles();
+            try {
+                frags[2] = new SmartPixels();
+            } catch (IndexOutOfBoundsException e) {
+                // Do nothing
+            }
         }
 
         @Override
@@ -106,10 +112,16 @@ public class AdvancedHolder extends SettingsPreferenceFragment {
 
     private String[] getTitles() {
         String titleString[];
-        titleString = new String[]{
-                    getString(R.string.system_category),
+        boolean enableSmartPixels = getContext().getResources().
+                getBoolean(com.android.internal.R.bool.config_enableSmartPixels);
+        if (enableSmartPixels) {
+            return new String[]{ getString(R.string.system_category),
+                    getString(R.string.screen_state_toggles_title),
+                    getString(R.string.smart_pixels_title)};
+        } else {
+            return new String[]{ getString(R.string.system_category),
                     getString(R.string.screen_state_toggles_title)};
-        return titleString;
+        }
     }
 }
 
