@@ -87,6 +87,10 @@
     <string name="network_traffic_state_title">Show network activity in statusbar</string>
     <string name="network_traffic_autohide_threshold_title">Network activity autohide threshold (KB/s)</string>
 
+    <!-- Brightness control -->
+    <string name="status_bar_toggle_brightness">Brightness control</string>
+    <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>
+
     <!--Owlsnest Notification-->
     <string name="notification_title">Notification</string>
     <string name="notification_summary">Adjust LEDs and notification behavior</string>
@@ -424,6 +428,12 @@
     <string name="immersive_recents_statusbar">Statusbar only</string>
     <string name="immersive_recents_navbar">Navbar only</string>
 
+   <!-- AOSP Recents Style -->
+    <string name="recents_type_title">Recents Layout</string>
+    <string name="recents_stock">Stock</string>
+    <string name="recents_grid">Grid</string>
+    <string name="recents_go">Android Go</string>
+
     <!-- Clear all recents -->
     <string name="aosp_recents_title">AOSP recents</string>
     <string name="show_clear_all_recents_button_title">Clear-all FAB</string>
@@ -485,10 +495,9 @@
     <string name="lockscreen_clock_selection_title">Clock style</string>
     <string name="lockscreen_clock_selection_digital">Default</string>
     <string name="lockscreen_clock_selection_digital_bold">Digital (bold)</string>
-    <string name="lockscreen_clock_selection_analog">Analog</string>
-    <string name="lockscreen_clock_selection_analog_deadpool">Analog (deadpool)</string>
     <string name="lockscreen_clock_selection_sammy">Sammy</string>
     <string name="lockscreen_clock_selection_sammy_bold">Sammy (bold)</string>
+    <string name="lockscreen_clock_selection_analog">Analog</string>
     <string name="hide_lockscreen_date_title">Date widget</string>
     <string name="hide_lockscreen_date_summary">Change the date\'s visibility underneath the clock widget</string>
     <string name="lockscreen_date_selection_title">Date style</string>
@@ -764,6 +773,10 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">SystemUI restart required</string>
     <string name="systemui_restart_message">For all changes to take effect, a SystemUI restart is required. Restart SystemUI now?</string>
+
+    <!-- Sensor block per-package -->
+    <string name="sensor_block_title">Sensor block per-package</string>
+    <string name="sensor_block_summary">Block access to certain sensors for some apps to save battery.</string>
 
 </resources>
 
